@@ -1,0 +1,14 @@
+<label for="codigo_ficha">codigo ficha</label>
+<input type="text" name="codigo_ficha" required autocomplete="off">
+<label for="cantidad_aprendices">cantidad de aprendices</label>
+<input type="text" name="cantidad_aprendices" required autocomplete="off">
+<label for="id_programa">programa</label>
+
+
+<select name="id_programa">
+
+  {{# each programa }}
+    <option value="{{this.id_programa}}">{{this.nombre_programa}}</option>
+  {{/each }}
+
+</select>

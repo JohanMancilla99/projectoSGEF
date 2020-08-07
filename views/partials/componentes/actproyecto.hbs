@@ -1,0 +1,13 @@
+<label for="nombre_actividad">nombre actividad de proyecto</label>
+<textarea name="nombre_actividad"></textarea>
+<label for=""></label>
+<select name="fase_actividad">
+  <option value="ejecucuion">ejecucuion</option>
+  <option value="evaluacion">evaluacion</option>
+</select>
+<label for="id_programa">programa</label>
+<select name="programa">
+  {{# each programas }}
+  <option value="{{this.id_programa}}">{{this.nombre_programa}}</option>
+  {{/ each }}
+</select>

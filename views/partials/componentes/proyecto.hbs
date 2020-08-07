@@ -1,0 +1,10 @@
+<label for="codigo_proyecto">codigo proyecto</label>
+<input type="number" name="codigo_proyecto" required autocomplete="off">
+<label for="nombre_proyecto"></label>
+<textarea name="nombre_proyecto" required></textarea>
+<label for="id_programa">programa</label>
+<select name="programa">
+  {{# each programas }}
+  <option value="{{this.id_programa}}">{{this.nombre_programa}}</option>
+  {{/ each }}
+</select>

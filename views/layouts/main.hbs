@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sistema de Gestion de Eventos de Formacion</title>
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Baloo+Da+2:wght@500&family=Galada&family=Montserrat+Subrayada&display=swap"
+        rel="stylesheet">
+
+    {{#each archivosCSS }}
+    <link rel="stylesheet" href="{{this}}.css">
+    {{/each}}
+
+    <link rel="icon" href="/icons/manzana.ico">
+
+  <style>
+    * {
+      font-family: 'Baloo Da 2', cursive;
+    }
+    form {
+      display: grid;
+      max-width: 40%;
+      margin: auto;
+      grid-gap: 10px;
+    }
+    .message {
+      display: grid;
+      justify-items: center;
+    }
+    form textarea {
+      resize: none;
+    }
+     /*
+     font-family: 'Baloo Da 2', cursive; <- Normal
+     font-family: 'Galada', cursive; <- Cursiva
+     font-family: 'Montserrat Subrayada', sans-serif; <- Titulos
+    */
+  </style>
+
+</head>
+
+<body>
+
+    {{{ body }}}
+
+    {{#each archivosJS }}
+    <script src="{{this}}.js"></script>
+    {{/each}}
+
+</body>
+
+</html>

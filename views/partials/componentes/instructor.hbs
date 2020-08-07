@@ -1,0 +1,25 @@
+<!--create table instructores
+(
+  id_instructor int primary key not null,
+  nombre_instructor varchar(200) not null,
+  programas text not null,
+  tipo_contrato varchar(20) not null,
+  horas_programadas int not null,
+  programacion_instructor varchar(200) not null
+);-->
+<label for="id_instructor">id instructor</label>
+<input type="number" name="id_instructor" required autocomplete="off">
+<label for="nombre_instructor">nombre instructor</label>
+<input type="text" name="nombre_instructor" required autocomplete="off">
+<label for="tipo_contrato">tipo contrato</label>
+<select name="tipo_contrato">
+  <option value="1">tipo 1</option>
+  <option value="2">tipo 2</option>
+</select>
+<label>programas</label>
+{{# each programas }}
+<div>
+  <input type="checkbox" name="programas" value="{{this.id_programa}}">
+  <label for="programas">id: {{this.id_programa}} - nombre: {{this.nombre_programa}}</label>
+</div>
+{{/ each}}

@@ -1,0 +1,10 @@
+<label for="codigo_actividad">codigo actividad de aprendizaje</label>
+<input type="number" name="codigo_actividad" required autocomplete="off">
+<label for="nombre_actividad">nombre actividad de aprendizaje</label>
+<textarea name="nombre_actividad"></textarea>
+<label for="id_resultado">resultado</label>
+<select name="id_resultado">
+{{# each resultados }}
+  <option value="{{this.id_resultado}}">{{this.nombre_resultado}}</option>
+{{/each }}
+</select>

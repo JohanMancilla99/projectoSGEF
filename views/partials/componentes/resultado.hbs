@@ -1,0 +1,41 @@
+<label for="id_resultado">id resultado</label>
+<input type="number" name="id_resultado" required autocomplete="off">
+<label for="nombre_resultado">nombre resultado</label>
+<textarea name="nombre_resultado" required></textarea>
+<label for="horas_resultado">horas totales</label>
+<input type="number" name="horas_resultado" required autocomplete="off">
+<label>trimestres que aplica</label>
+<div style="display: flex; justify-content: space-around;">
+  <div>
+    <input type="checkbox" name="trimestres" value="1">
+    <label for="trimestres">primero</label>
+  </div>
+  <div>
+    <input type="checkbox" name="trimestres" value="2">
+    <label for="trimestres">segundo</label>
+  </div>
+  <div>
+    <input type="checkbox" name="trimestres" value="3">
+    <label for="trimestres">tercero</label>
+  </div>
+</div>
+<div style="display: flex; justify-content: space-around;">
+  <div>
+    <input type="checkbox" name="trimestres" value="4">
+    <label for="trimestres">cuarto</label>
+  </div>
+  <div>
+    <input type="checkbox" name="trimestres" value="5">
+    <label for="trimestres">quinto</label>
+  </div>
+  <div>
+    <input type="checkbox" name="trimestres" value="6">
+    <label for="trimestres">sexto</label>
+  </div>
+</div>
+<label for="id_competencia">competencia</label>
+<select name="id_competencia">
+{{# each competencias}}
+  <option value="{{this.id_competencia}}">{{this.nombre_competencia}}</option>
+{{/ each }}
+</select>
