@@ -11,7 +11,7 @@ router.get("/", (req, res) => {
           console.log(e)
         } else {
           res.render("admin/crearComponentes/proyecto.hbs", {
-            resultados: result
+            programas: result
           })
         }
       })

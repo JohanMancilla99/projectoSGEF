@@ -10,26 +10,12 @@ create table programas
   descripcion_programa varchar(200) not null
 );
 
-create table actividades_proyecto (
-	id_actividad int primary key auto_increment,
-	nombre_actividad varchar(200) not null unique,
-  fase_actividad varchar(30) not null,
-  id_programa int
-);
-
 create table fichas (
   id_ficha int primary key auto_increment,
   codigo_ficha varchar(20) not null unique,
   cantidad_aprendices int not null,
   programacion_ficha varchar(200),
   competenciasProgramadas text default "",
-  id_programa int
-);
-
-create table proyectos (
-	id_proyecto int primary key auto_increment,
-  codigo_proyecto int unique,
-  nombre_proyecto varchar(200) unique,
   id_programa int
 );
 
@@ -69,6 +55,27 @@ create table instructores
   programacion_instructor varchar(200) not null
 );
 
+create table actividades_aprendizaje (
+	id_actividad int primary key auto_increment,
+  codigo_actividad int unique,
+  nombre_actividad varchar(200) unique,
+	id_resultado int not null
+);
+
+create table actividades_proyecto (
+	id_actividad int primary key auto_increment,
+	nombre_actividad varchar(200) not null unique,
+  fase_actividad varchar(30) not null,
+  id_programa int
+);
+
+create table proyectos (
+	id_proyecto int primary key auto_increment,
+  codigo_proyecto int unique,
+  nombre_proyecto varchar(200) unique,
+  id_programa int
+);
+
 create table usuarios
 (
   id_usuario int primary key,
@@ -79,18 +86,12 @@ create table usuarios
   rol int not null
 );
 
-create table actividades_aprendizaje (
-	id_actividad int primary key auto_increment,
-  codigo_actividad int unique,
-  nombre_actividad varchar(200) unique,
-	id_resultado int not null
-);
-
 create table eventos (
 	id_evento int primary key auto_increment,
 	hora_inicio varchar(10) not null,
   hora_fin varchar(10) not null,
   dia varchar(20) not null,
+  fecha_creacion varchar not null,
   id_proyecto int,
   id_actividad_proyecto int,
   id_instructor int not null,
@@ -99,13 +100,6 @@ create table eventos (
   id_resultado int not null,
   id_autor int not null
 );
-
-create table competencias_programa
-(
-  id_programa int not null,
-  id_competencia int not null
-);
-
 
 alter table fichas
 	add constraint fk_programa_fichas foreign key (id_programa) references programas (id_programa);
@@ -116,11 +110,8 @@ alter table proyectos
 alter table actividades_proyecto
 	add constraint fk_programa_actividades_proyecto foreign key (id_programa) references programas (id_programa);
 
-alter table competencias_programa
-	add constraint fk_programa_competencia_programa foreign key (id_programa) references programas (id_programa);
-
-alter table competencias_programa
-	add constraint fk_competencia_competencia_programa foreign key (id_competencia) references competencias (id_competencia);
+alter table competencias
+	add constraint fk_programa_competencia foreign key (id_programa) references programas (id_programa);
 
 alter table resultados
 	add constraint fk_competencias_resultados foreign key (id_competencia) references competencias (id_competencia);
